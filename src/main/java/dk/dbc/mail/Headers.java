@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Headers {
-    Map<String, String> headers = new HashMap<String, String>();
+    private final Map<String, String> headers = new HashMap<String, String>();
 
     public Headers withHeader(String name, String value) {
         headers.put(name, value);

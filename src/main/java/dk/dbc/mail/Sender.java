@@ -6,7 +6,7 @@ import javax.mail.Transport;
 import javax.mail.internet.MimeMessage;
 
 public class Sender {
-    private MimeMessage message;
+    protected MimeMessage message;
     private Session session;
 
     public Sender withMessage(MimeMessage message) {

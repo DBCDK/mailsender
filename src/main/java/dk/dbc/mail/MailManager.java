@@ -4,7 +4,7 @@ package dk.dbc.mail;
 import javax.mail.Session;
 
 public class MailManager {
-    private Session mailSession;
+    private final Session mailSession;
     public MailManager(Session mailSession) {
         this.mailSession = mailSession;
     }
