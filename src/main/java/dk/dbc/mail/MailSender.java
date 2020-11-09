@@ -59,7 +59,9 @@ public class MailSender {
         MimeBodyPart mimeBodyPart = new MimeBodyPart();
         MimeMultipart mimeMultipart = new MimeMultipart();
         mimeBodyPart.setText(bodyText);
-        message.setFrom(fromAddress);
+        if (fromAddress != null) {
+            message.setFrom(fromAddress);
+        }
         message.setSubject(subject);
         message.addRecipients(Message.RecipientType.TO, recipients);
         if (headers != null) {
