@@ -1,17 +1,22 @@
 package dk.dbc.mail;
 
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import javax.mail.Address;
 import javax.mail.Message;
 import javax.mail.MessagingException;
 import javax.mail.Session;
+import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
 
 public class MailSender {
     private String fromAddress;
+    private String replyToAddress;
     private String recipients;
     private Set<Attachment> attachments;
     private String subject;
@@ -25,6 +30,11 @@ public class MailSender {
 
     public MailSender withFromAddress(String fromAddress) {
         this.fromAddress = fromAddress;
+        return this;
+    }
+
+    public MailSender withReplyToAddress(String replyToAddress) {
+        this.replyToAddress = replyToAddress;
         return this;
     }
 
@@ -61,6 +71,9 @@ public class MailSender {
         mimeBodyPart.setText(bodyText);
         if (fromAddress != null) {
             message.setFrom(fromAddress);
+        }
+        if (replyToAddress != null) {
+            message.setReplyTo(new InternetAddress[]{new InternetAddress(replyToAddress)});
         }
         message.setSubject(subject);
         message.addRecipients(Message.RecipientType.TO, recipients);

@@ -22,6 +22,7 @@ public class TestMailmanager {
         Sender sender = mailManager.newMail()
                 .withRecipients("someone_out_there@outthere.dk")
                 .withFromAddress("someone_in_here@inhere.dk")
+                .withReplyToAddress("someoneelse_in_here@inhere.dk")
                 .withBodyText("<h1>some text</h1>")
                 .withSubject("test")
                 .withHeaders(new Headers()
