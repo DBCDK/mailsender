@@ -1,7 +1,7 @@
 package dk.dbc.mail;
 
 
-import javax.mail.Session;
+import jakarta.mail.Session;
 
 public class MailManager {
     private final Session mailSession;
