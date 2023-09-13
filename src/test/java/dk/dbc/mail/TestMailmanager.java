@@ -1,16 +1,16 @@
 package dk.dbc.mail;
+
 import java.io.IOException;
-import javax.mail.Message;
-import javax.mail.MessagingException;
-import javax.mail.Session;
-import javax.mail.internet.MimeMultipart;
+import jakarta.mail.Message;
+import jakarta.mail.MessagingException;
+import jakarta.mail.Session;
+import jakarta.mail.internet.MimeMultipart;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
-
 
 public class TestMailmanager {
     private static final Logger LOGGER = LoggerFactory.getLogger(TestMailmanager.class);
@@ -47,7 +47,6 @@ public class TestMailmanager {
 
         assertThat("Bodytext", bodytext, equalTo("<h1>some text</h1>"));
         String expectedAttachment = new String(TestMailmanager.class.getResourceAsStream("test.html").readAllBytes());
-        assertThat("Atachment", attachmentAsText, equalTo(expectedAttachment));
-
+        assertThat("Attachment", attachmentAsText, equalTo(expectedAttachment));
     }
 }
